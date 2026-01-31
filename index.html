@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia Meta Ads: Plastigomm</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            lightBlue: '#0EA5E9',
+                            amber: '#F59E0B',
+                            dark: '#0F172A',
+                            bg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-brand-bg pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-brand-blue text-white py-16 px-4 shadow-xl mb-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Estrategia Digital B2B 2026</h1>
+            <p class="text-xl md:text-2xl font-light text-blue-100">Inteligencia de Mercado: Plastigomm</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <span class="bg-brand-amber text-brand-dark px-5 py-2 rounded-full text-sm font-bold shadow-md">Foco: Alta Demanda Agro</span>
+                <span class="bg-white text-brand-blue px-5 py-2 rounded-full text-sm font-bold shadow-md">Target: Decisores de Compra</span>
+                <span class="bg-blue-800 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md">Estrategia Anti-Desgaste</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 gap-12">
+
+        <!-- Section 1: Concept Update -->
+        <section class="bg-white rounded-2xl card-shadow p-8 border-l-8 border-brand-blue">
+            <h2 class="text-2xl font-bold text-brand-blue mb-4">Análisis de Demanda Nacional</h2>
+            <p class="text-gray-700 leading-relaxed text-lg">
+                El mercado argentino de reposición ha girado hacia la <strong>eficiencia de cosecha</strong>. Hemos reordenado las prioridades basándonos en el volumen de búsqueda en la zona núcleo y la tendencia de recambio tecnológico (Drapers y Mixers). Incorporamos la línea de <strong>Revestimientos Anti-desgaste</strong> como oportunidad de crecimiento no explotada.
+            </p>
+        </section>
+
+        <!-- Section 2: Products Chart (REORDERED & UPDATED) -->
+        <section class="bg-white p-8 md:p-12 rounded-2xl card-shadow">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-brand-dark mb-2 text-center">Prioridad Real de Mercado (Argentina)</h3>
+                <p class="text-sm text-gray-500 text-center uppercase tracking-widest font-bold">Ordenado por intención de compra y volumen de búsqueda</p>
+            </div>
+            <div class="chart-container" style="max-width: 900px; height: 500px;">
+                <canvas id="productsChart"></canvas>
+            </div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <strong class="text-brand-blue">Lonas Draper:</strong> El producto #1 debido a la modernización de las plataformas de cosecha en Córdoba y Santa Fe.
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border border-brand-amber/20">
+                    <strong class="text-brand-amber italic text-lg">¡Nueva Oportunidad!</strong><br>
+                    <strong>Revestimientos Anti-desgaste:</strong> Alta demanda nacional para proteger tolvas y mixers. Un mercado cautivo que busca durabilidad.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Charts Group -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="bg-white p-8 rounded-2xl card-shadow">
+                <h3 class="text-xl font-bold text-brand-dark mb-6">Audiencia por Interés</h3>
+                <div class="chart-container">
+                    <canvas id="audienceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl card-shadow">
+                <h3 class="text-xl font-bold text-brand-dark mb-6">Inversión Geográfica</h3>
+                <div class="chart-container">
+                    <canvas id="geoChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Roadmap (UPDATED) -->
+        <section class="py-10">
+            <h3 class="text-3xl font-bold text-brand-dark text-center mb-12">Próximos Pasos Estratégicos</h3>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Completed -->
+                <div class="flex items-center gap-6 p-6 bg-green-50 rounded-xl border border-green-200">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">✓</div>
+                    <div>
+                        <h4 class="font-bold text-green-800">Pixel de Meta</h4>
+                        <p class="text-sm text-green-700">Implementado. Listo para medir conversiones.</p>
+                    </div>
+                </div>
+                <!-- Pending 1 -->
+                <div class="flex items-center gap-6 p-6 bg-white rounded-xl card-shadow border-l-4 border-brand-amber">
+                    <div class="w-12 h-12 bg-brand-amber rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">1</div>
+                    <div>
+                        <h4 class="font-bold text-brand-dark">Sesión de Fotos: Línea Anti-Desgaste</h4>
+                        <p class="text-sm text-gray-600">Material visual de planchas de goma y revestimientos (Producto que genera diferencia).</p>
+                    </div>
+                </div>
+                <!-- Pending 2 -->
+                <div class="flex items-center gap-6 p-6 bg-white rounded-xl card-shadow border-l-4 border-brand-blue">
+                    <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">2</div>
+                    <div>
+                        <h4 class="font-bold text-brand-dark">Presupuestos por Estacionalidad</h4>
+                        <p class="text-sm text-gray-600">Asignar 60% a Lonas/Correas en Pre-Cosecha y 40% a Revestimientos todo el año.</p>
+                    </div>
+                </div>
+                <!-- Pending 3 -->
+                <div class="flex items-center gap-6 p-6 bg-white rounded-xl card-shadow border-l-4 border-brand-lightBlue">
+                    <div class="w-12 h-12 bg-brand-lightBlue rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">3</div>
+                    <div>
+                        <h4 class="font-bold text-brand-dark">Automatización de WhatsApp</h4>
+                        <p class="text-sm text-gray-600">Respuestas rápidas para pedidos urgentes de "Cosecha detenida".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 bg-brand-dark text-white py-12 text-center">
+        <p class="opacity-50 text-sm tracking-widest uppercase">Plastigomm | Inteligencia de Mercado 2026</p>
+    </footer>
+
+    <script>
+        function formatLabel(str, maxLen = 18) {
+            if (typeof str !== 'string') return str;
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= maxLen) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const commonTooltip = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) return label.join(' ');
+                    return label;
+                }
+            }
+        };
+
+        // --- CHART 1: AUDIENCE ---
+        const ctxAudience = document.getElementById('audienceChart').getContext('2d');
+        new Chart(ctxAudience, {
+            type: 'doughnut',
+            data: {
+                labels: ["Contratistas Rurales", "Mantenimiento Ind.", "Ing. Agrónomos", "Repuesteros"].map(l => formatLabel(l)),
+                datasets: [{
+                    data: [50, 25, 15, 10],
+                    backgroundColor: ['#2563EB', '#F59E0B', '#0EA5E9', '#CBD5E1'],
+                    borderWidth: 5,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: commonTooltip
+                }
+            }
+        });
+
+        // --- CHART 2: GEO ---
+        const ctxGeo = document.getElementById('geoChart').getContext('2d');
+        new Chart(ctxGeo, {
+            type: 'bar',
+            data: {
+                labels: ["Zona Núcleo (Inversión)", "Zona Expansión (Inversión)"],
+                datasets: [
+                    {
+                        label: 'Meta Ads %',
+                        data: [75, 25],
+                        backgroundColor: '#2563EB',
+                        borderRadius: 8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // --- CHART 3: PRODUCTS (REORDERED BY RESEARCH) ---
+        const ctxProd = document.getElementById('productsChart').getContext('2d');
+        const prodData = [
+            { name: "Lonas Draper", val: 98, color: '#1E3A8A' },
+            { name: "Correa Rotoenfardadora", val: 92, color: '#2563EB' },
+            { name: "Revestimiento Anti-Desgaste", val: 89, color: '#F59E0B' }, // PRODUCTO NUEVO DETECTADO
+            { name: "Correa Segadora", val: 85, color: '#3B82F6' },
+            { name: "Engomado de Rolos", val: 80, color: '#60A5FA' },
+            { name: "Lonas Hileradoras", val: 75, color: '#93C5FD' },
+            { name: "Correa Desmalezadora", val: 72, color: '#64748B' },
+            { name: "Cintas Transportadoras", val: 68, color: '#94A3B8' }
+        ];
+
+        new Chart(ctxProd, {
+            type: 'bar',
+            data: {
+                labels: prodData.map(d => formatLabel(d.name, 20)),
+                datasets: [{
+                    label: 'Intención de Búsqueda / Demanda',
+                    data: prodData.map(d => d.val),
+                    backgroundColor: prodData.map(d => d.color),
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { display: false },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { weight: 'bold', size: 13 } } 
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltip
+                }
+            }
+        });
+    </script>
+</body>
+</html>
